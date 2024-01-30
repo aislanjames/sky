@@ -1,0 +1,38 @@
+{
+  "name": "sky",
+  "version": "1.0.0",
+  "description": "Teste de para vaga de Frontend na SKY",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aislanjames/sky.git"
+  },
+  "keywords": [
+    "SKY",
+    "Frontend",
+    "Test",
+    "SASS",
+    "Bootstrap",
+    "JS",
+    "Javascript",
+    "JQuery"
+  ],
+  "author": "Aislan James",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aislanjames/sky/issues"
+  },
+  "homepage": "https://github.com/aislanjames/sky#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.2",
+    "jquery": "^3.7.1",
+    "sass": "^1.70.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
