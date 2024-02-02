@@ -1,3 +1,102 @@
-nav.navbar, footer {
+nav.navbar,
+footer {
     background-color: #f1f2fa;
+}
+
+/* CAROUSEL */
+#myCarousel {
+    display: block;
+    /* Mudamos para block para que o overflow hidden funcione corretamente */
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 300%;
+    /* Aumentamos para acomodar todos os itens lado a lado */
+}
+
+.carousel-item {
+    width: 33.333%;
+    /* Mantemos para garantir que três imagens possam ser visualizadas */
+    opacity: 0.5;
+    /* Mantemos a opacidade reduzida para os itens não ativos */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.carousel-item img {
+    width: 100%;
+    /* Garante que a imagem cubra a largura do item */
+    transition: transform 0.5s ease;
+}
+
+/* Ajuste para garantir que a imagem do meio seja ampliada e com opacidade total */
+.carousel-inner .active {
+    opacity: 1;
+}
+
+.carousel-inner .active~.carousel-item {
+    transform: scale(0.9);
+    /* Reduz ligeiramente o tamanho das imagens seguintes */
+}
+
+/* Utilizamos pseudo-elementos para criar o efeito de sombra/destaque nas laterais */
+.carousel-inner::before,
+.carousel-inner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    /* Ajuste conforme necessário para o efeito desejado */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+    z-index: 2;
+}
+
+.carousel-inner::after {
+    right: 0;
+    transform: rotateZ(180deg);
+}
+
+.carousel-inner::before {
+    left: 0;
+}
+
+
+
+/* SLIDER */
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* Adicione estilos para seus slides aqui */
+.carousel-slide {
+    min-width: 16.666%;
+    /* Para mostrar 6 slides e meio em telas grandes */
+    overflow: hidden;
 }
