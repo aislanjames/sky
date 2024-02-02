@@ -6,29 +6,64 @@ $(document).ready(function () {
 });
 
 //Carousel
-$(document).ready(function () {
-    $('#myCarousel').on('slid.bs.carousel', function () {
-        var items = $('.carousel-item');
-        var activeItem = $('.carousel-item.active');
-        var activeIndex = items.index(activeItem);
-        var totalItems = items.length;
-
-        items.removeClass('active-middle').css('opacity', '0.5'); // Reset opacidade
-        if (activeIndex === 0) { // Primeiro item
-            $(items[totalItems - 1]).css('opacity', '0.5');
-            $(items[1]).css('opacity', '0.5');
-        } else if (activeIndex === totalItems - 1) { // Último item
-            $(items[0]).css('opacity', '0.5');
-            $(items[activeIndex - 1]).css('opacity', '0.5');
-        } else {
-            $(items[activeIndex - 1]).css('opacity', '0.5');
-            $(items[activeIndex + 1]).css('opacity', '0.5');
+document.addEventListener('DOMContentLoaded', (event) => {
+    const galleryContainer = document.querySelector('.gallery-container');
+    const galleryControlsContainer = document.querySelector('.gallery-controls');
+    const galleryControls = ['previous', 'next'];
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    class Carousel {
+        constructor(container, items, controls) {
+            this.carouselContainer = container;
+            this.carouselControls = controls;
+            this.carouselArray = [...items];
         }
-
-        activeItem.css('opacity', '1'); // Aumenta opacidade do item ativo
-    });
+    
+        updateGallery(){
+            this.carouselArray.forEach(el => {
+                el.classList.remove('gallery-item-1');
+                el.classList.remove('gallery-item-2');
+                el.classList.remove('gallery-item-3');
+                el.classList.remove('gallery-item-4');
+                el.classList.remove('gallery-item-5');
+            });
+    
+            this.carouselArray.slice(0, 5).forEach((el, i) => {
+                el.classList.add(`gallery-item-${i+1}`);
+            });
+        }
+    
+        setCurrentState(direction){
+            if (direction.classList.contains('gallery-controls-previous')) {
+                this.carouselArray.unshift(this.carouselArray.pop());
+            } else {
+                this.carouselArray.push(this.carouselArray.shift());
+            }        
+            this.updateGallery();
+        }
+    
+        setControls() {
+            this.carouselControls.forEach(control => {
+                galleryControlsContainer.appendChild(document.createElement('button')).className = `gallery-controls-${control}`;
+                document.querySelector(`.gallery-controls-${control}`).innerText = control;
+            });
+        }
+    
+        useControls(){
+            const triggers = [...galleryControlsContainer.childNodes];
+            triggers.forEach(control => {
+                control.addEventListener('click', e => {
+                    e.preventDefault();
+                    this.setCurrentState(control);
+                });
+            });
+        }
+    }
+    
+    const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
+    exampleCarousel.setControls();
+    exampleCarousel.useControls();    
 });
-
 
 
 //Slider
