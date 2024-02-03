@@ -1,0 +1,6 @@
+@import "./components/header";
+@import "./components/main";
+
+nav.navbar, footer {
+    background-color: $bg-header;
+}
