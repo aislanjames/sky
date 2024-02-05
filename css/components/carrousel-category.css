@@ -1,0 +1,78 @@
+#sliderBX {
+  height: 100px;
+  background: #ddd;
+  margin-left: 0px;
+  transition: margin 0.2s ease-in-out;
+}
+
+#sliderBX-contenedor {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  background: blue;
+}
+
+#btnSliderNext i, #btnSliderPrev i {
+  padding-top: 6px;
+}
+
+#btnSliderNext, #btnSliderPrev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #2997AD;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  padding: 0px;
+  text-align: center;
+  opacity: 0.5;
+}
+
+#btnSliderNext:hover, #btnSliderPrev:hover {
+  cursor: pointer;
+  background: black;
+}
+
+#btnSliderNext {
+  position: absolute;
+  right: 5px;
+}
+
+#btnSliderPrev {
+  position: absolute;
+  left: 5px;
+}
+
+.sliderBXcell {
+  width: 250px;
+  height: 100px;
+  display: inline-block;
+  float: left;
+  text-align: center;
+}
+
+.sliderBXcell p {
+  padding-top: 40px;
+}
+
+#sliderBX .sliderBXcell:nth-child(odd) {
+  height: 100px;
+  background: #f2f2f2;
+  display: inline-block;
+  float: left;
+}
+
+#sliderBX .sliderBXcell:nth-child(even) {
+  height: 100px;
+  background: #ddd;
+  display: inline-block;
+  float: left;
+}
+
+p {
+  margin: 0px;
+  padding: 0px;
+}
