@@ -48,6 +48,9 @@
   }
   .sliderBXcell p{
     padding-top:40px;
+    margin:0px;
+    padding:0px;
+        
   }
   #sliderBX .sliderBXcell:nth-child(odd){
     height:100px;
@@ -60,8 +63,4 @@
     background:#ddd;
     display:inline-block;
     float:left;
-  }
-  p{
-    margin:0px;
-    padding:0px;
   }
